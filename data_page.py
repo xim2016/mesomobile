@@ -86,7 +86,7 @@ def data_page():
             clicked = clickable_images(
                 images, 
                 div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                img_style={"margin": "5px", "height": "30px"},
+                img_style={"margin": "5px", "height": "50px"},
             )
         else:
             st.write("No core for current selection.")
