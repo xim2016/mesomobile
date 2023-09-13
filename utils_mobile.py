@@ -215,14 +215,15 @@ def show_plotly_image(img_file, height=750):
                                        'filename': 'core_img',},
                'modeBarButtonsToUirevision':'showspikes',
                'modeBarButtonsToRemove': ['zoom', 'resetScale'],
-               'modeBarButtonsToAdd': ['pan'
-                                       'drawline',
-                                        'drawopenpath',
-                                        'drawclosedpath',
-                                        'drawcircle',
-                                        'drawrect',
-                                        'eraseshape'
-                                       ]}
+            #    'modeBarButtonsToAdd': [
+            #                            'drawline',
+            #                             'drawopenpath',
+            #                             'drawclosedpath',
+            #                             'drawcircle',
+            #                             'drawrect',
+            #                             'eraseshape'
+            #                            ]
+            }
     st.plotly_chart(fig, use_container_width=True, height=height, config=config)
     
     
