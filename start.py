@@ -63,7 +63,7 @@ font_fmt = {'font-class':'h3','font-size':'50%'}
 #     horizontal_orientation=True)
 
 chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"], 
-    # icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    icons=['🏠', '📊', "☎️", '📲'], 
     default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "#fafafa"},
