@@ -168,11 +168,12 @@ def data_page():
         #     on_change=disable_other_checkboxes,
         #     args=( list(set(vargs) - set([key])) +[key] ),
         # )
-        option = st.radio("Image type", vargs, horizontal=True)
+
+        captions = [ " ", "Marker", "Marker", "Marker", "Marker",  "Marker", "Marker", "Marker", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein"]
+        option = st.radio("Select image type", key="visibility", options=vargs,  horizontal=True)
             
             # rd = st.radio("", ("H&E","", "mIF", "mIF ", "CD4", "CD8", "CD56", "CD68", "CD11c", "FOXP3","CD20", "BAP1","NF2", "MTAP","LAG3" ))
-
-    
+        
     
 
         # option = get_current_checkedBox(options)
