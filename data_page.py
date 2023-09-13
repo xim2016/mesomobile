@@ -21,7 +21,7 @@ def get_current_checkedBox(options):
 def data_page():
     
     
-    max_width = '100%'
+    max_width = '80%'
     padding_top = '1rem'
     padding_right = '0rem'
     padding_left = '0rem'
