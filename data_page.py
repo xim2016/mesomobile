@@ -93,9 +93,7 @@ def data_page():
 
 
     
-    if len(images) == 0:
-        for i in range(20):
-            st.markdown("#")
+
             
     if len(images) > 0 :
 
