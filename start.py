@@ -71,7 +71,7 @@ chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"],
         "nav-link": {"font-size": "10px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "#0f4d92"},
     }
-# )
+)
 
 
 _, cm, _ = st.columns([1,15,1])
