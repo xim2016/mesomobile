@@ -21,7 +21,7 @@ def get_current_checkedBox(options):
 def data_page():
     
     
-    max_width = '90%'
+    max_width = '80%'
     padding_top = '1rem'
     padding_right = '0rem'
     padding_left = '0rem'
@@ -194,7 +194,7 @@ def data_page():
             # st.write(showedCore_ids2[clicked])
             if os.path.exists(f"{dir}/{filename}"):
                 imgfile =  Image.open(f"{dir}/{filename}")
-                show_plotly_image(imgfile, 750)
+                show_plotly_image(imgfile, 100)
             else:
                 st.markdown("#")
                 info = '<p style="font-size: 16px; font-weight: bold;text-align: center">Image datas is not available for this core.</p>'  #sans-serif   Soin Sans Pro
