@@ -106,22 +106,22 @@ def data_page():
         vargs2 = ["mIF ", "CD56", "CD11c", "BAP1","NF2", "MTAP","LAG3"] 
         vargs = vargs0 +  vargs1 + vargs2   
 
-        chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
-        ls_images = list(chanel_images.values())
+        # chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
+        # ls_images = list(chanel_images.values())
 
-        clab = st.columns([1,7,7])
+        # clab = st.columns([1,7,7])
         
-        clab[1].markdown( '<p style="font-size: 14px;  font-weight: bold"> Panel-Marker </p>',  unsafe_allow_html=True) 
-        clab[2].markdown(' <p style="font-size: 14px;  font-weight: bold"> Panel-Protein </p>',  unsafe_allow_html=True)
+        # clab[1].markdown( '<p style="font-size: 14px;  font-weight: bold"> Panel-Marker </p>',  unsafe_allow_html=True) 
+        # clab[2].markdown(' <p style="font-size: 14px;  font-weight: bold"> Panel-Protein </p>',  unsafe_allow_html=True)
 
-        cimg = st.columns(15)
+        # cimg = st.columns(15)
 
-        for i in range(15):
-            with cimg[i]:
-                st.markdown(ls_images[i], unsafe_allow_html=True)
-                st.markdown( f"<p style='font-size: 14px;  font-weight: normal; text-align: center'>{vargs[i]}</p>",  unsafe_allow_html=True) 
+        # for i in range(15):
+        #     with cimg[i]:
+        #         st.markdown(ls_images[i], unsafe_allow_html=True)
+        #         st.markdown( f"<p style='font-size: 14px;  font-weight: normal; text-align: center'>{vargs[i]}</p>",  unsafe_allow_html=True) 
 
-        st.divider()
+        # st.divider()
         c1, c2,_,c3 = st.columns([1.5, 7,0.5,2.5])
 
         with c1:
