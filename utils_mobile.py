@@ -208,14 +208,15 @@ def show_plotly_image(img_file, height=750):
     fig.update_yaxes(showgrid=False, showticklabels=False)
     fig.update_layout(height=height,
                       newshape_line_color='cyan',
-                      dragmode='dragmode')
+                      dragmode='drawopenpath')
     config = {'displayModeBar': True,
               'displaylogo': False,
+              
               'toImageButtonOptions': { 'height': None, 'width': None, 
                                        'filename': 'core_img',},
-               'modeBarButtonsToUirevision':'showspikes',
+               'modeBarButtonsToUirevision':'dragmode',
                'modeBarButtonsToRemove': ['zoom', 'resetScale'],
-            #    'modeBarButtonsToAdd': [
+            #    'modeBarButtonsToAdd': ['pan'
             #                            'drawline',
             #                             'drawopenpath',
             #                             'drawclosedpath',
