@@ -71,25 +71,25 @@ def data_page():
                     key = c2_IDs[i]
                 )
         
-    with st.sidebar:
-        st.markdown("### Click the core to zoom in", True)
-        #H&E use image_names , others use core_ids as image names
-        image_names, core_ids, core_ids2 = get_imageNames(cs1, cs2, c1_IDs,c2_IDs)
-        
-        
-        
-        images, showedImage_names, showedCore_ids, showedCore_ids2 = load_HEImages(path_img_logo , list(image_names), list(core_ids), list(core_ids2))
+   
+    st.markdown("### Click the core to zoom in", True)
+    #H&E use image_names , others use core_ids as image names
+    image_names, core_ids, core_ids2 = get_imageNames(cs1, cs2, c1_IDs,c2_IDs)
+    
+    
+    
+    images, showedImage_names, showedCore_ids, showedCore_ids2 = load_HEImages(path_img_logo , list(image_names), list(core_ids), list(core_ids2))
 
 
-        with st.empty():
-            if len(images) > 0 :
-                clicked = clickable_images(
-                    images, 
-                    div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                    img_style={"margin": "10px", "height": "70px"},
-                )
-            else:
-                st.write("No core for current selection.")
+    with st.empty():
+        if len(images) > 0 :
+            clicked = clickable_images(
+                images, 
+                div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+                img_style={"margin": "10px", "height": "70px"},
+            )
+        else:
+            st.write("No core for current selection.")
 
 
     
