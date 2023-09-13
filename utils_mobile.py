@@ -208,7 +208,7 @@ def show_plotly_image(img_file, height=750):
     fig.update_yaxes(showgrid=False, showticklabels=False)
     fig.update_layout(height=height,
                       newshape_line_color='cyan',
-                      dragmode='drawopenpath')
+                      dragmode=False)
     config = {'displayModeBar': True,
               'displaylogo': False,
               
