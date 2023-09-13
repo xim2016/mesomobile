@@ -23,7 +23,7 @@ def get_current_checkedBox(options):
 def data_page2():
     
     
-    max_width = '100%'
+    max_width = '80%'
     padding_top = '0rem'
     padding_right = '0rem'
     padding_left = '0rem'
@@ -51,10 +51,10 @@ def data_page2():
 
     c1_IDs = ["Institute", "Classification","CaseType","subtype", "Grade"]
     c1_names = ["Institute", "Classification","Case type","Subtype", "Tumor grade"]
-    _,c1,_= st.columns([1,1,1])
+
     cs1 = dict()
     for i in range(5):
-        cs1[i] = c1.selectbox(
+        cs1[i] = st.selectbox(
                     c1_names[i],
                     get_orderedList(c1_IDs[i]),
                     key = c1_IDs[i]
@@ -65,7 +65,7 @@ def data_page2():
     c2_names = ["Gender", "Diagnosis age","Asbestos exposure","Race", "Smoking"]
     cs2 = dict()
     for i in range(5):
-        cs2[i] = c1.selectbox(
+        cs2[i] = st.selectbox(
                     c2_names[i],
                     get_orderedList(c2_IDs[i]),
                     key = c2_IDs[i]
