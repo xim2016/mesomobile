@@ -68,7 +68,7 @@ chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"],
     styles={
         "container": {"padding": "0!important", "background-color": "#fafafa"},
         # "icon": {"color": "orange", "font-size": "10px"}, 
-        "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link": {"font-size": "13px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "#0f4d92"},
     }
 )
