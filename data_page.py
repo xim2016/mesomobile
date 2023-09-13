@@ -50,10 +50,10 @@ def data_page():
 
     c1_IDs = ["Institute", "Classification","CaseType","subtype", "Grade"]
     c1_names = ["Institute", "Classification","Case type","Subtype", "Tumor grade"]
-    c1 = st.columns([3,3,3,3,3])
+    # c1 = st.columns([3,3,3,3,3])
     cs1 = dict()
     for i in range(5):
-        cs1[i] = c1[i].selectbox(
+        cs1[i] = st.selectbox(
                     c1_names[i],
                     get_orderedList(c1_IDs[i]),
                     key = c1_IDs[i]
@@ -65,7 +65,7 @@ def data_page():
     c2 = st.columns([3,3,3,3,3])
     cs2 = dict()
     for i in range(5):
-        cs2[i] = c2[i].selectbox(
+        cs2[i] = st.selectbox(
                     c2_names[i],
                     get_orderedList(c2_IDs[i]),
                     key = c2_IDs[i]
@@ -86,7 +86,7 @@ def data_page():
             clicked = clickable_images(
                 images, 
                 div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                img_style={"margin": "5px", "height": "50px"},
+                img_style={"margin": "5px", "height": "40px"},
             )
         else:
             st.write("No core for current selection.")
