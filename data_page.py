@@ -72,7 +72,7 @@ def data_page():
                 )
         
    
-    st.markdown("### Click the core to zoom in", True)
+    st.markdown("### Select the core to view.", True)
     #H&E use image_names , others use core_ids as image names
     image_names, core_ids, core_ids2 = get_imageNames(cs1, cs2, c1_IDs,c2_IDs)
     
@@ -122,117 +122,111 @@ def data_page():
         #         st.markdown( f"<p style='font-size: 14px;  font-weight: normal; text-align: center'>{vargs[i]}</p>",  unsafe_allow_html=True) 
 
         # st.divider()
-        c1, c2,_,c3 = st.columns([1.5, 7,0.5,2.5])
+        
+        # st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Image type</p>',  unsafe_allow_html=True) #sans-serif   Soin Sans Pro
 
-        with c1:
-            # st.markdown("#### Image type")
-            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Image type</p>',  unsafe_allow_html=True) #sans-serif   Soin Sans Pro
-    
-            option2dir = {"H&E": f"{PATH_IMG_HE}",
-                        "mIF": f"{PATH_IMG_TMA}/panel1/multi",
-                        "CD4": f"{PATH_IMG_TMA}/panel1/CD4",
-                        "CD8": f"{PATH_IMG_TMA}/panel1/CD8",
-                        "CD20": f"{PATH_IMG_TMA}/panel1/CD20",
-                        "CD68": f"{PATH_IMG_TMA}/panel1/CD68",
-                        "FOXP3": f"{PATH_IMG_TMA}/panel1/FOXP3",
-                        "panCK": f"{PATH_IMG_TMA}/panel1/panCK",
-                        "mIF ": f"{PATH_IMG_TMA}/panel2/multi2",
-                        "CD56": f"{PATH_IMG_TMA}/panel2/CD56",
-                        "CD11c": f"{PATH_IMG_TMA}/panel2/CD11c",
-                        "BAP1": f"{PATH_IMG_TMA}/panel2/BAP1",
-                        "NF2": f"{PATH_IMG_TMA}/panel2/NF2",
-                        "MTAP": f"{PATH_IMG_TMA}/panel2/MTAP",
-                        "LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
-            }
+        option2dir = {"H&E": f"{PATH_IMG_HE}",
+                    "mIF": f"{PATH_IMG_TMA}/panel1/multi",
+                    "CD4": f"{PATH_IMG_TMA}/panel1/CD4",
+                    "CD8": f"{PATH_IMG_TMA}/panel1/CD8",
+                    "CD20": f"{PATH_IMG_TMA}/panel1/CD20",
+                    "CD68": f"{PATH_IMG_TMA}/panel1/CD68",
+                    "FOXP3": f"{PATH_IMG_TMA}/panel1/FOXP3",
+                    "panCK": f"{PATH_IMG_TMA}/panel1/panCK",
+                    "mIF ": f"{PATH_IMG_TMA}/panel2/multi2",
+                    "CD56": f"{PATH_IMG_TMA}/panel2/CD56",
+                    "CD11c": f"{PATH_IMG_TMA}/panel2/CD11c",
+                    "BAP1": f"{PATH_IMG_TMA}/panel2/BAP1",
+                    "NF2": f"{PATH_IMG_TMA}/panel2/NF2",
+                    "MTAP": f"{PATH_IMG_TMA}/panel2/MTAP",
+                    "LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
+        }
 
 
-            options = dict()
-            for key in vargs0:
-                options[key] = st.checkbox(
-                key,
-                value=True,
-                key=key,
-                on_change=disable_other_checkboxes,
-                args=( list(set(vargs) - set([key])) +[key] ),
-            )
-            # st.markdown("###### Panel-marker")
-            for key in vargs1:
-                options[key] = st.checkbox(
-                key,
-                key=key,
-                on_change=disable_other_checkboxes,
-                args=( list(set(vargs) - set([key])) +[key] ),
-            )
-            # st.markdown("###### Panel-protein")
-            for key in vargs2:
-                options[key] = st.checkbox(
-                key,
-                key=key,
-                on_change=disable_other_checkboxes,
-                args=( list(set(vargs) - set([key])) +[key] ),
-            )
-
+        # options = dict()
+        # for key in vargs0:
+        #     options[key] = st.checkbox(
+        #     key,
+        #     value=True,
+        #     key=key,
+        #     on_change=disable_other_checkboxes,
+        #     args=( list(set(vargs) - set([key])) +[key] ),
+        # )
+        # # st.markdown("###### Panel-marker")
+        # for key in vargs1:
+        #     options[key] = st.checkbox(
+        #     key,
+        #     key=key,
+        #     on_change=disable_other_checkboxes,
+        #     args=( list(set(vargs) - set([key])) +[key] ),
+        # )
+        # # st.markdown("###### Panel-protein")
+        # for key in vargs2:
+        #     options[key] = st.checkbox(
+        #     key,
+        #     key=key,
+        #     on_change=disable_other_checkboxes,
+        #     args=( list(set(vargs) - set([key])) +[key] ),
+        # )
+        option = st.radio("Image type", vargs, horizontal=True)
             
             # rd = st.radio("", ("H&E","", "mIF", "mIF ", "CD4", "CD8", "CD56", "CD68", "CD11c", "FOXP3","CD20", "BAP1","NF2", "MTAP","LAG3" ))
 
-        with c2:
-        
+    
+    
 
-            option = get_current_checkedBox(options)
+        # option = get_current_checkedBox(options)
 
-            dir = option2dir[option]
-        
-            if option == "H&E":
-                filename = f"{showedImage_names[clicked]}.jpg"
-            elif option in vargs1 :   
-                filename = f"{showedCore_ids[clicked]}_composite_image.tif"
-            else:
-                filename = f"{showedCore_ids2[clicked]}_composite_image.tif"
-                
-            # st.write(showedImage_names[clicked])
-            # st.write(showedCore_ids[clicked])
-            # st.write(showedCore_ids2[clicked])
-            if os.path.exists(f"{dir}/{filename}"):
-                imgfile =  Image.open(f"{dir}/{filename}")
-                show_plotly_image(imgfile, 500)
-            else:
-                st.markdown("#")
-                info = '<p style="font-size: 16px; font-weight: bold;text-align: center">Image datas is not available for this core.</p>'  #sans-serif   Soin Sans Pro
-                st.markdown(info, unsafe_allow_html=True)
+        dir = option2dir[option]
+    
+        if option == "H&E":
+            filename = f"{showedImage_names[clicked]}.jpg"
+        elif option in vargs1 :   
+            filename = f"{showedCore_ids[clicked]}_composite_image.tif"
+        else:
+            filename = f"{showedCore_ids2[clicked]}_composite_image.tif"
+            
+        # st.write(showedImage_names[clicked])
+        # st.write(showedCore_ids[clicked])
+        # st.write(showedCore_ids2[clicked])
+        if os.path.exists(f"{dir}/{filename}"):
+            imgfile =  Image.open(f"{dir}/{filename}")
+            show_plotly_image(imgfile, 500)
+        else:
+            # st.markdown("#")
+            info = '<p style="font-size: 16px; font-weight: bold;text-align: center">Image datas is not available for this core.</p>'  #sans-serif   Soin Sans Pro
+            st.markdown(info, unsafe_allow_html=True)
 
 
-        
-            # st.image(imgfile)
+    
+        # st.image(imgfile)
 
-        with c3:
             
             # st.markdown("#### Core feature", True)
-            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
-            st.write("")
-            st.write("")    
+        st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
 
 
-            core_id = showedCore_ids[clicked]
-            fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
-            for i in range(5):
-                st.markdown(f"**{c1_names[i]}** : {fetu1[i]}", True)
-            for i in range(5):
-                st.markdown(f"**{c2_names[i]}** : {fetu2[i]}", True)
-                # st.markdown(f"**:black[{c2_names[i]}]** : {fetu2[i]}", True) 
-            for item in fetu_plus.keys():
-                st.markdown(f"**{item}** : {fetu_plus[item]}", True)   
+        core_id = showedCore_ids[clicked]
+        fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
+        for i in range(5):
+            st.markdown(f"**{c1_names[i]}** : {fetu1[i]}", True)
+        for i in range(5):
+            st.markdown(f"**{c2_names[i]}** : {fetu2[i]}", True)
+            # st.markdown(f"**:black[{c2_names[i]}]** : {fetu2[i]}", True) 
+        for item in fetu_plus.keys():
+            st.markdown(f"**{item}** : {fetu_plus[item]}", True)   
 
-            percent, count1, count2 = get_coreStatistic(core_id, option)
-            if option in vargs1:
-                count = count1
-            else:
-                count = count2
-            st.markdown(f"**Number of cells** : {count}", True) 
-            # st.markdown(f"**{option} percentage** : {percent}", True)  
+        percent, count1, count2 = get_coreStatistic(core_id, option)
+        if option in vargs1:
+            count = count1
+        else:
+            count = count2
+        st.markdown(f"**Number of cells** : {count}", True) 
+        # st.markdown(f"**{option} percentage** : {percent}", True)  
 
-            if option != "H&E":
-                st.divider()
-                st.markdown("**DAPI in :blue[blue color]**")
+        if option != "H&E":
+            st.divider()
+            st.markdown("**DAPI in :blue[blue color]**")
 
 
     
