@@ -1,7 +1,7 @@
 import streamlit as st
 from st_clickable_images import clickable_images
 from PIL import Image
-from utils import get_orderedList, get_imageNames, load_HEImages, load_coreImages, show_plotly_image, get_core_feature, get_coreStatistic
+from utils_mobile import get_orderedList, get_imageNames, load_HEImages, load_coreImages, show_plotly_image, get_core_feature, get_coreStatistic
 from style import define_layout
 import os
 
@@ -86,7 +86,7 @@ def data_page():
             clicked = clickable_images(
                 images, 
                 div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                img_style={"margin": "10px", "height": "70px"},
+                img_style={"margin": "5px", "height": "30px"},
             )
         else:
             st.write("No core for current selection.")
