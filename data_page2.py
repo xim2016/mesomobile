@@ -51,7 +51,7 @@ def data_page2():
 
     c1_IDs = ["Institute", "Classification","CaseType","subtype", "Grade"]
     c1_names = ["Institute", "Classification","Case type","Subtype", "Tumor grade"]
-    _,c1,_= st.columns([1,6,1])
+    _,c1,_= st.columns([1,4,1])
     cs1 = dict()
     for i in range(5):
         cs1[i] = c1.selectbox(
