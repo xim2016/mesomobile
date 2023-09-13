@@ -55,22 +55,22 @@ menu_data = [
 over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'#0f4d92'}
 font_fmt = {'font-class':'h3','font-size':'50%'}
 
-chosen_tab = hc.option_bar(
-    option_definition=menu_data,
-    title='',
-    key='PrimaryOptionx',
-    override_theme=over_theme,
-    horizontal_orientation=True)
+# chosen_tab = hc.option_bar(
+#     option_definition=menu_data,
+#     title='',
+#     key='PrimaryOptionx',
+#     override_theme=over_theme,
+#     horizontal_orientation=True)
 
-# chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"], 
-#     # icons=['🏠', '📊', "☎️", '📲'], 
-#     menu_icon="cast", default_index=0, orientation="horizontal",
-#     styles={
-#         "container": {"padding": "0!important", "background-color": "#fafafa"},
-#         # "icon": {"color": "orange", "font-size": "10px"}, 
-#         "nav-link": {"font-size": "10px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-#         "nav-link-selected": {"background-color": "#0f4d92"},
-#     }
+chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"], 
+    # icons=['🏠', '📊', "☎️", '📲'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        # "icon": {"color": "orange", "font-size": "10px"}, 
+        "nav-link": {"font-size": "10px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "#0f4d92"},
+    }
 # )
 
 
