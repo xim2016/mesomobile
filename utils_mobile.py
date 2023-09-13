@@ -214,12 +214,12 @@ def show_plotly_image(img_file, height=750):
               'toImageButtonOptions': { 'height': None, 'width': None, 
                                        'filename': 'core_img',},
                'modeBarButtonsToRemove': ['zoom', 'resetScale'],
-               'modeBarButtonsToAdd': ['drawline',
+               'modeBarButtonsToAdd': ['eraseshape',
+                                       'drawline',
                                         'drawopenpath',
                                         'drawclosedpath',
                                         'drawcircle',
-                                        'drawrect',
-                                        'eraseshape'
+                                        'drawrect'
                                        ]}
     st.plotly_chart(fig, use_container_width=True, height=height, config=config)
     
