@@ -86,7 +86,7 @@ def data_page2():
             clicked = clickable_images(
                 images, 
                 div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                img_style={"margin": "2px", "height": "50px"},
+                img_style={"margin": "5px", "height": "40px"},
             )
         else:
             st.write("No core for current selection.")
@@ -121,20 +121,7 @@ def data_page2():
     }
     
     
-    # if clicked == -1: clicked = 0
-    
-    # images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
-    # ls_images = list(images.values())
-    
-    # clicked_chanel = clickable_images(
-    #                     ls_images, 
-    #                     div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-    #                     img_style={"margin": "2px", "height": "70px"},
-    #                     key = i,
-    #                 )
-    # st.markdown( '<p style="font-size: 14px;  font-weight: bold; text-align: center"> &#160 &#160 &#160      H&E      &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160 &#160   CD4    &#160 &#160 &#160 &#160 &#160     CD8     &#160 &#160 &#160 &#160 &#160     CD20  &#160 &#160 &#160 &#160 &#160       CD68    &#160 &#160 &#160          FOXP3     &#160 &#160 &#160 &#160 panCK \
-    #             &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160    CD56    &#160 &#160 &#160     CD11c     &#160 &#160 &#160 &#160 &#160     MAP1  &#160 &#160 &#160 &#160       NF2    &#160 &#160 &#160 &#160 &#160          MTAP     &#160 &#160 &#160 &#160     LAG3</p>',  unsafe_allow_html=True) 
-    
+   
     def disable_other_checkboxes(*other_checkboxes_keys):
         # if current one is trun to false, reset it to true
         if st.session_state[other_checkboxes_keys[-1]] == False:
@@ -167,40 +154,26 @@ def data_page2():
 
     # if clicked == -1: clicked = 0
 
-    images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
-    ls_images = list(images.values())
-    st.markdown( '<p style="font-size: 14px;  font-weight: bold; text-align: center">     Panel-Marker   &#160 &#160 &#160  &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160  &#160   &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160  \
-                &#160 &#160 &#160 &#160 &#160  &#160 &#160  Panel-Protein &#160  &#160   &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160  &#160  &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160 </p>',  unsafe_allow_html=True) 
-   
-    clicked_chanel = clickable_images(
-                        ls_images, 
-                        div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-                        img_style={"margin": "2px", "height": "70px"},
-                        key = "chanels",
-                    )
-    st.markdown( '<p style="font-size: 14px;  font-weight: bold; text-align: center">      H&E      &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160 &#160   CD4    &#160 &#160 &#160 &#160 &#160     CD8     &#160 &#160 &#160 &#160 &#160     CD20  &#160 &#160 &#160 &#160 &#160        CD68    &#160 &#160 &#160  &#160           FOXP3     &#160 &#160 &#160 &#160   panCK \
-                &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160    CD56    &#160 &#160 &#160 &#160    CD11c     &#160 &#160 &#160 &#160     BAP1  &#160 &#160 &#160 &#160  &#160       NF2    &#160 &#160 &#160 &#160 &#160         MTAP     &#160 &#160 &#160 &#160   LAG3</p>',  unsafe_allow_html=True) 
-   
-    st.divider()
+    ###########################################################################################
 
-    if clicked_chanel == -1:
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        info = '<p style="font-size: 16px; font-weight: bold;text-align: center">Please choose an image type to view</p>'  #sans-serif   Soin Sans Pro
-        st.markdown(info, True)
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
-        st.markdown("##")
+    # images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
+    # ls_images = list(images.values())
+    # st.markdown( '<p style="font-size: 14px;  font-weight: bold; text-align: center">     Panel-Marker   &#160 &#160 &#160  &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160  &#160   &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160  \
+    #             &#160 &#160 &#160 &#160 &#160  &#160 &#160  Panel-Protein &#160  &#160   &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160  &#160 &#160 &#160 &#160  &#160  &#160 &#160 &#160 &#160   &#160 &#160 &#160 &#160 &#160 </p>',  unsafe_allow_html=True) 
+   
+    # clicked_chanel = clickable_images(
+    #                     ls_images, 
+    #                     div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+    #                     img_style={"margin": "2px", "height": "70px"},
+    #                     key = "chanels",
+    #                 )
+    # st.markdown( '<p style="font-size: 14px;  font-weight: bold; text-align: center">      H&E      &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160 &#160   CD4    &#160 &#160 &#160 &#160 &#160     CD8     &#160 &#160 &#160 &#160 &#160     CD20  &#160 &#160 &#160 &#160 &#160        CD68    &#160 &#160 &#160  &#160           FOXP3     &#160 &#160 &#160 &#160   panCK \
+    #             &#160 &#160 &#160 &#160 &#160     Multi  &#160 &#160 &#160 &#160    CD56    &#160 &#160 &#160 &#160    CD11c     &#160 &#160 &#160 &#160     BAP1  &#160 &#160 &#160 &#160  &#160       NF2    &#160 &#160 &#160 &#160 &#160         MTAP     &#160 &#160 &#160 &#160   LAG3</p>',  unsafe_allow_html=True) 
+   
+    # st.divider()
+
+    if len(images)> 0 :
         
-    else:
         c1, c2,_,c3 = st.columns([1.2, 7,0.5,2.5])
 
     # if clicked_chanel == -1:
