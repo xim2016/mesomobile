@@ -42,15 +42,25 @@ menu_data = [
         {'icon':"📲",'label':"Citation"},
         
     ]
-over_theme = {'txc_inactive': 'white','menu_background':'#0f4d92','txc_active':'black'} #2e5090#0F52BA #048bbc #016490
+# over_theme = {'txc_inactive': 'white','menu_background':'#0f4d92','txc_active':'black'} #2e5090#0F52BA #048bbc #016490
 
 
-chosen_tab = hc.nav_bar(
-        menu_definition=menu_data,
-        override_theme=over_theme,
-        hide_streamlit_markers=False, 
-        # sticky_mode='pinned'
-    )
+# chosen_tab = hc.nav_bar(
+#         menu_definition=menu_data,
+#         override_theme=over_theme,
+#         hide_streamlit_markers=False, 
+#         # sticky_mode='pinned'
+#     )
+
+over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'red'}
+font_fmt = {'font-class':'h3','font-size':'50%'}
+
+chosen_tab = hc.option_bar(
+    option_definition=menu_data,
+    title='',
+    key='PrimaryOptionx',
+    override_theme=over_theme,
+    horizontal_orientation=True)
 
 
 _, cm, _ = st.columns([1,15,1])
