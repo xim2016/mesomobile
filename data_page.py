@@ -62,7 +62,7 @@ def data_page():
 
     c2_IDs = ["Gender", "DiagnosisAge","AsbestosExposure","Race", "smoking"]
     c2_names = ["Gender", "Diagnosis age","Asbestos exposure","Race", "Smoking"]
-    c2 = st.columns([3,3,3,3,3])
+    # c2 = st.columns([3,3,3,3,3])
     cs2 = dict()
     for i in range(5):
         cs2[i] = st.selectbox(
