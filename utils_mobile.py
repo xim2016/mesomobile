@@ -213,7 +213,7 @@ def show_plotly_image(img_file, height=750):
               'displaylogo': False,
               'toImageButtonOptions': { 'height': None, 'width': None, 
                                        'filename': 'core_img',},
-               'modeBarButtonsToUirevision':'hovermode',
+               'modeBarButtonsToUirevision':'showspikes',
                'modeBarButtonsToRemove': ['zoom', 'resetScale'],
                'modeBarButtonsToAdd': ['pan'
                                        'drawline',
