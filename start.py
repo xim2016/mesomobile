@@ -1,6 +1,6 @@
 import streamlit as st
 # from streamlit_option_menu import option_menu
-from data_page import data_page
+from data_page2 import data_page2
 from contact_page import contact_page
 from home_page import home_page
 from citation_page import citation_page
@@ -73,7 +73,7 @@ with cm:
         contact_page()
 
     elif chosen_tab == "Data":
-        data_page()
+        data_page2()
     
     elif chosen_tab == "Citation":
         citation_page()
