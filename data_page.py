@@ -91,7 +91,7 @@ def data_page():
         )
 
         if clicked != -1: 
-            st.write(f"Core {showedImage_names[clicked]} is selected")
+            st.info(f"Core {showedImage_names[clicked]} is selected")
             
             st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
 
