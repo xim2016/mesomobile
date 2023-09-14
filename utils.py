@@ -158,7 +158,7 @@ def load_coreImages(HE_id, panel1_id, panel2_id):
     file = f"{PATH_HE_logo}/{HE_id}.png"
     with open(file, "rb") as image:
         encoded = base64.b64encode(image.read()).decode()
-        images["H&E"]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100%'>")
+        images["H&E"]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100px'>")
 
     for chanel in p1s:
         file = f"{PATH_panel1_logo}/{chanel}/{panel1_id}.png"
@@ -167,7 +167,7 @@ def load_coreImages(HE_id, panel1_id, panel2_id):
         with open(file, "rb") as image:
             encoded = base64.b64encode(image.read()).decode()
             label = chanel.replace("multi", "Composite")
-            images[label]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100%'>")
+            images[label]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100px'>")
     
     for chanel in p2s:
         file = f"{PATH_panel2_logo}/{chanel}/{panel2_id}.png"
@@ -176,7 +176,7 @@ def load_coreImages(HE_id, panel1_id, panel2_id):
         with open(file, "rb") as image:
             encoded = base64.b64encode(image.read()).decode()
             label = chanel.replace("multi2", "Composite ")
-            images[label]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100%'>")
+            images[label]=(f"<img src= 'data:image/png;base64,{encoded}' class='img-fluid' style='width:100px'>")
     return(images)
 
 def get_imageNames(cs1, cs2, c1_IDs, c2_IDs):
@@ -208,19 +208,22 @@ def show_plotly_image(img_file, height=750):
     fig.update_yaxes(showgrid=False, showticklabels=False)
     fig.update_layout(height=height,
                       newshape_line_color='cyan',
-                      dragmode='drawopenpath')
+                      dragmode=False)
     config = {'displayModeBar': True,
               'displaylogo': False,
+              
               'toImageButtonOptions': { 'height': None, 'width': None, 
                                        'filename': 'core_img',},
                'modeBarButtonsToRemove': ['zoom', 'resetScale'],
-               'modeBarButtonsToAdd': ['drawline',
+               'modeBarButtonsToAdd': [
+                                       'drawline',
                                         'drawopenpath',
                                         'drawclosedpath',
                                         'drawcircle',
                                         'drawrect',
                                         'eraseshape'
-                                       ]}
+                                       ]
+            }
     st.plotly_chart(fig, use_container_width=True, height=height, config=config)
     
     
@@ -279,18 +282,23 @@ def generat_logo_images():
 def get_screen_width_height():
     #Import the required libraries
 
-    import tkinter 
-    #Create an instance of tkinter frame
-    win= tkinter.Tk()
+    # import tkinter 
+    # #Create an instance of tkinter frame
+    # win= tkinter.Tk()
 
-    #Set the geometry of frame
-    win.geometry("650x250")
+    # #Set the geometry of frame
+    # win.geometry("650x250")
 
-    #Get the current screen width and height
-    screen_width = win.winfo_screenwidth()
-    screen_height = win.winfo_screenheight()
+    # #Get the current screen width and height
+    # screen_width = win.winfo_screenwidth()
+    # screen_height = win.winfo_screenheight()
 
-    #Print the screen size
-    print("Screen width:", screen_width)
-    print("Screen height:", screen_height)
+    # #Print the screen size
+    # # print("Screen width:", screen_width)
+    # # print("Screen height:", screen_height)
+    
+    from streamlit_js_eval import streamlit_js_eval
+    st.write(f"Screen width is {streamlit_js_eval(js_expressions='screen.width', key = 'SCR')}")
+    st.write(f"Screen height is {streamlit_js_eval(js_expressions='screen.height', key = 'SCR1')}")     
 
+  
