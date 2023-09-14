@@ -91,48 +91,21 @@ def data_page():
         else:
             st.write("No core for current selection.")
 
-
-    
-
-            
     if len(images) > 0 :
 
-        st.divider()
-
-        if clicked == -1: clicked = 0
-
         vargs0 = ["H&E"]
-        vargs1 = ["mIF", "CD4", "CD8", "CD20", "CD68", "FOXP3", "panCK"]
-        vargs2 = ["mIF ", "CD56", "CD11c", "BAP1","NF2", "MTAP","LAG3"] 
+        vargs1 = ["(Panel-Marker) mIF", "(Panel-Marker) CD4", "(Panel-Marker) CD8", "(Panel-Marker) CD20", "(Panel-Marker) CD68", "(Panel-Marker) FOXP3", "(Panel-Marker) panCK"]
+        vargs2 = ["(Panel-Protein) mIF ", "(Panel-Protein) CD56", "(Panel-Protein) CD11c", "(Panel-Protein) BAP1","(Panel-Protein) NF2", "(Panel-Protein) MTAP","(Panel-Protein) LAG3"] 
         vargs = vargs0 +  vargs1 + vargs2   
 
-        # chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
-        # ls_images = list(chanel_images.values())
-
-        # clab = st.columns([1,7,7])
-        
-        # clab[1].markdown( '<p style="font-size: 14px;  font-weight: bold"> Panel-Marker </p>',  unsafe_allow_html=True) 
-        # clab[2].markdown(' <p style="font-size: 14px;  font-weight: bold"> Panel-Protein </p>',  unsafe_allow_html=True)
-
-        # cimg = st.columns(15)
-
-        # for i in range(15):
-        #     with cimg[i]:
-        #         st.markdown(ls_images[i], unsafe_allow_html=True)
-        #         st.markdown( f"<p style='font-size: 14px;  font-weight: normal; text-align: center'>{vargs[i]}</p>",  unsafe_allow_html=True) 
-
-        # st.divider()
-        
-        # st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Image type</p>',  unsafe_allow_html=True) #sans-serif   Soin Sans Pro
-
         option2dir = {"H&E": f"{PATH_IMG_HE}",
-                    "mIF": f"{PATH_IMG_TMA}/panel1/multi",
-                    "CD4": f"{PATH_IMG_TMA}/panel1/CD4",
-                    "CD8": f"{PATH_IMG_TMA}/panel1/CD8",
-                    "CD20": f"{PATH_IMG_TMA}/panel1/CD20",
-                    "CD68": f"{PATH_IMG_TMA}/panel1/CD68",
-                    "FOXP3": f"{PATH_IMG_TMA}/panel1/FOXP3",
-                    "panCK": f"{PATH_IMG_TMA}/panel1/panCK",
+                    "(Panel-Marker) mIF": f"{PATH_IMG_TMA}/panel1/multi",
+                    "(Panel-Marker) CD4": f"{PATH_IMG_TMA}/panel1/CD4",
+                    "(Panel-Marker) CD8": f"{PATH_IMG_TMA}/panel1/CD8",
+                    "(Panel-Marker) CD20": f"{PATH_IMG_TMA}/panel1/CD20",
+                    "(Panel-Marker) CD68": f"{PATH_IMG_TMA}/panel1/CD68",
+                    "(Panel-Marker) FOXP3": f"{PATH_IMG_TMA}/panel1/FOXP3",
+                    "(Panel-Marker) panCK": f"{PATH_IMG_TMA}/panel1/panCK",
                     "mIF ": f"{PATH_IMG_TMA}/panel2/multi2",
                     "CD56": f"{PATH_IMG_TMA}/panel2/CD56",
                     "CD11c": f"{PATH_IMG_TMA}/panel2/CD11c",
@@ -142,41 +115,67 @@ def data_page():
                     "LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
         }
 
+        st.markdown("### Select the core to view.", True)
+        options = dict()
+        for key in vargs0:
+            options[key] = st.checkbox(
+            label = key,
+            value=True,
+            key=key,
+            help = "this is a test",
+            on_change=disable_other_checkboxes,
+            args=( list(set(vargs) - set([key])) +[key] ),
+        )
+        # st.markdown("###### Panel-marker")
+        for key in vargs1:
+            options[key] = st.checkbox(
+            key,
+            key=key,
+            on_change=disable_other_checkboxes,
+            args=( list(set(vargs) - set([key])) +[key] ),
+        )
+        # st.markdown("###### Panel-protein")
+        for key in vargs2:
+            options[key] = st.checkbox(
+            key,
+            key=key,
+            on_change=disable_other_checkboxes,
+            args=( list(set(vargs) - set([key])) +[key] ),
+        )
 
-        # options = dict()
-        # for key in vargs0:
-        #     options[key] = st.checkbox(
-        #     key,
-        #     value=True,
-        #     key=key,
-        #     on_change=disable_other_checkboxes,
-        #     args=( list(set(vargs) - set([key])) +[key] ),
-        # )
-        # # st.markdown("###### Panel-marker")
-        # for key in vargs1:
-        #     options[key] = st.checkbox(
-        #     key,
-        #     key=key,
-        #     on_change=disable_other_checkboxes,
-        #     args=( list(set(vargs) - set([key])) +[key] ),
-        # )
-        # # st.markdown("###### Panel-protein")
-        # for key in vargs2:
-        #     options[key] = st.checkbox(
-        #     key,
-        #     key=key,
-        #     on_change=disable_other_checkboxes,
-        #     args=( list(set(vargs) - set([key])) +[key] ),
-        # )
-
-        captions = [ " ", "Marker", "Marker", "Marker", "Marker",  "Marker", "Marker", "Marker", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein"]
-        option = st.radio("Select image type", key="visibility", options=vargs,  horizontal=True)
+        # captions = [ " ", "Marker", "Marker", "Marker", "Marker",  "Marker", "Marker", "Marker", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein", "Protein"]
+        # option = st.radio("Select image type", key="visibility", options=vargs,  horizontal=True)
             
             # rd = st.radio("", ("H&E","", "mIF", "mIF ", "CD4", "CD8", "CD56", "CD68", "CD11c", "FOXP3","CD20", "BAP1","NF2", "MTAP","LAG3" ))
         
-    
+        if clicked == -1: clicked = 0
+        option = get_current_checkedBox(options)
 
-        # option = get_current_checkedBox(options)
+
+        st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
+
+        core_id = showedCore_ids[clicked]
+        fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
+        for i in range(5):
+            st.markdown(f"**{c1_names[i]}** : {fetu1[i]}", True)
+        for i in range(5):
+            st.markdown(f"**{c2_names[i]}** : {fetu2[i]}", True)
+            # st.markdown(f"**:black[{c2_names[i]}]** : {fetu2[i]}", True) 
+        for item in fetu_plus.keys():
+            st.markdown(f"**{item}** : {fetu_plus[item]}", True)   
+
+        percent, count1, count2 = get_coreStatistic(core_id, option)
+        if option in vargs1:
+            count = count1
+        else:
+            count = count2
+        st.markdown(f"**Number of cells** : {count}", True) 
+        # st.markdown(f"**{option} percentage** : {percent}", True)  
+
+        if option != "H&E":
+            st.divider()
+            st.markdown("**DAPI in :blue[blue color]**")
+
 
         dir = option2dir[option]
     
@@ -204,30 +203,5 @@ def data_page():
 
             
             # st.markdown("#### Core feature", True)
-        st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
-
-
-        core_id = showedCore_ids[clicked]
-        fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
-        for i in range(5):
-            st.markdown(f"**{c1_names[i]}** : {fetu1[i]}", True)
-        for i in range(5):
-            st.markdown(f"**{c2_names[i]}** : {fetu2[i]}", True)
-            # st.markdown(f"**:black[{c2_names[i]}]** : {fetu2[i]}", True) 
-        for item in fetu_plus.keys():
-            st.markdown(f"**{item}** : {fetu_plus[item]}", True)   
-
-        percent, count1, count2 = get_coreStatistic(core_id, option)
-        if option in vargs1:
-            count = count1
-        else:
-            count = count2
-        st.markdown(f"**Number of cells** : {count}", True) 
-        # st.markdown(f"**{option} percentage** : {percent}", True)  
-
-        if option != "H&E":
-            st.divider()
-            st.markdown("**DAPI in :blue[blue color]**")
-
 
     
