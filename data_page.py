@@ -137,14 +137,24 @@ def data_page():
                         "(Panel-Protein) LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
             }
 
-            st.markdown("#### Select the image type to view.", True)
+
+            # image chanel views
+            chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
+            ls_images = list(chanel_images.values())
+
+            for i in range(15):
+                st.write(vargs[i])
+                st.markdown(ls_images[i], unsafe_allow_html=True)
+
+            #zoom in
+
+            st.markdown("#### Select the image type to zoom in.", True)
             options = dict()
             for key in vargs0:
                 options[key] = st.checkbox(
                 label = key,
                 value=True,
                 key=key,
-                help = "this is a test",
                 on_change=disable_other_checkboxes,
                 args=( list(set(vargs) - set([key])) +[key] ),
             )
