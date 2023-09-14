@@ -91,9 +91,10 @@ def data_page():
         )
 
         if clicked != -1: 
-            st.info(f"Core {showedImage_names[clicked]} is selected")
+
             
-            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
+            coreinfo = f'<p style="color:#5f6060;background-color:grey; font-size: 12px; font-weight: bold;text-align: center">Core {showedImage_names[clicked]} is selected</p>'  #sans-serif   Soin Sans Pro
+            st.markdown( coreinfo,  unsafe_allow_html=True) 
 
             core_id = showedCore_ids[clicked]
             fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
@@ -141,7 +142,7 @@ def data_page():
             
             #zoom in
 
-            st.markdown("#### Select the image type to zoom in.", True)
+            st.markdown("#### Select a channel to zoom in.", True)
             options = dict()
             for key in vargs0:
                 options[key] = st.checkbox(
@@ -201,7 +202,7 @@ def data_page():
                 st.markdown("**DAPI in :blue[blue color]**")
 
             # image chanel views
-            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Channel images</p>',  unsafe_allow_html=True) 
+            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">All image channels</p>',  unsafe_allow_html=True) 
             chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
             ls_images = list(chanel_images.values())
 
