@@ -128,13 +128,13 @@ def data_page():
                         "(Panel-Marker) CD68": f"{PATH_IMG_TMA}/panel1/CD68",
                         "(Panel-Marker) FOXP3": f"{PATH_IMG_TMA}/panel1/FOXP3",
                         "(Panel-Marker) panCK": f"{PATH_IMG_TMA}/panel1/panCK",
-                        "mIF ": f"{PATH_IMG_TMA}/panel2/multi2",
-                        "CD56": f"{PATH_IMG_TMA}/panel2/CD56",
-                        "CD11c": f"{PATH_IMG_TMA}/panel2/CD11c",
-                        "BAP1": f"{PATH_IMG_TMA}/panel2/BAP1",
-                        "NF2": f"{PATH_IMG_TMA}/panel2/NF2",
-                        "MTAP": f"{PATH_IMG_TMA}/panel2/MTAP",
-                        "LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
+                        "(Panel-Protein) mIF ": f"{PATH_IMG_TMA}/panel2/multi2",
+                        "(Panel-Protein) CD56": f"{PATH_IMG_TMA}/panel2/CD56",
+                        "(Panel-Protein) CD11c": f"{PATH_IMG_TMA}/panel2/CD11c",
+                        "(Panel-Protein) BAP1": f"{PATH_IMG_TMA}/panel2/BAP1",
+                        "(Panel-Protein) NF2": f"{PATH_IMG_TMA}/panel2/NF2",
+                        "(Panel-Protein) MTAP": f"{PATH_IMG_TMA}/panel2/MTAP",
+                        "(Panel-Protein) LAG3": f"{PATH_IMG_TMA}/panel2/LAG3"
             }
 
             st.markdown("#### Select the image type to view.", True)
