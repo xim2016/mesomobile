@@ -138,15 +138,7 @@ def data_page():
             }
 
 
-            # image chanel views
-            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Channel images</p>',  unsafe_allow_html=True) 
-            chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
-            ls_images = list(chanel_images.values())
-
-            for i in range(15):
-                st.write(vargs[i])
-                st.markdown(ls_images[i], unsafe_allow_html=True)
-
+            
             #zoom in
 
             st.markdown("#### Select the image type to zoom in.", True)
@@ -208,10 +200,14 @@ def data_page():
                 # st.divider()
                 st.markdown("**DAPI in :blue[blue color]**")
 
-        
-            # st.image(imgfile)
+            # image chanel views
+            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Channel images</p>',  unsafe_allow_html=True) 
+            chanel_images = load_coreImages(showedImage_names[clicked],showedCore_ids[clicked],showedCore_ids2[clicked] )
+            ls_images = list(chanel_images.values())
 
-                
-                # st.markdown("#### Core feature", True)
+            for i in range(15):
+                st.write(vargs[i])
+                st.markdown(ls_images[i], unsafe_allow_html=True)
+
 
         
