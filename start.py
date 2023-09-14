@@ -97,7 +97,4 @@ with cm:
 
 from utils import get_screen_width_height
 
-width, height = get_screen_width_height()
-
-st.write(width)
-st.write(height)
+get_screen_width_height()
