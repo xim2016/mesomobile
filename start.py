@@ -4,10 +4,11 @@ from data_page import data_page
 from contact_page import contact_page
 from home_page import home_page
 from citation_page import citation_page
-import hydralit_components as hc
+# import hydralit_components as hc
 from streamlit_option_menu import option_menu
 from style import page_style, footer
 
+# def start_mobile():
 #disable streamlit warning
 st.elements.utils._shown_default_value_warning=True
 
@@ -76,7 +77,7 @@ chosen_tab = option_menu(None, ["About", "Data",  "Contact", "Citation"],
 
 _, cm, _ = st.columns([1,15,1])
 with cm: 
-   
+
     if chosen_tab == "About":
         home_page()
         
@@ -94,3 +95,9 @@ with cm:
     st.divider()
     st.markdown(footer,unsafe_allow_html=True) 
 
+from utils import get_screen_width_height
+
+width, height = get_screen_width_height()
+
+st.write(width)
+st.write(height)
