@@ -91,11 +91,12 @@ def data_page():
         )
 
         if clicked != -1: 
-
+            st.info("test")
             
-            coreinfo = f'<p style="color:#5f6060;background-color:grey; font-size: 12px; font-weight: bold;text-align: center">Core {showedImage_names[clicked]} is selected</p>'  #sans-serif   Soin Sans Pro
+            coreinfo = f'<p style="color:#5f6060; background-color:#e9f2fc; font-size: 12px; font-weight: bold;text-align: center;  padding-top: 6px; padding-bottom: 6px;border-radius: 10px; ">Core {showedImage_names[clicked]} is selected</p>'  #sans-serif   Soin Sans Pro
             st.markdown( coreinfo,  unsafe_allow_html=True) 
-
+            
+            st.markdown( '<p style="font-family:sans-serif; color:#002e8c; font-size: 22px;  font-weight: bold">Core feature</p>',  unsafe_allow_html=True) 
             core_id = showedCore_ids[clicked]
             fetu1, fetu2, fetu_plus = get_core_feature(c1_IDs, c2_IDs, core_id)
             for i in range(5):
